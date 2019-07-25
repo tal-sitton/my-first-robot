@@ -17,16 +17,19 @@ import frc.robot.subsystems.Gripper;
  */
 public class RobotMap {
     public static interface PWM {
-        public static final int GRIPPER_MOTOR_RIGHT = 5;
-        public static final int GRIPPER_MOTOR_LEFT = 4;
-        public static final int DRIVE_TRAIN_LEFT_FRONT = 3;
-        public static final int DRIVE_TRAIN_LEFT_BACK = 2;
-        public static final int DRIVE_TRAIN_RIGHT_FRONT = 1;
-        public static final int DRIVE_TRAIN_RIGHT_BACK = 0;
+        public static final int GRIPPER_MOTOR_RIGHT = 0;
+        public static final int GRIPPER_MOTOR_LEFT = 1;
+
+    }
+    public static interface CAN{
+        public static final int DRIVE_TRAIN_LEFT_FRONT = 5;
+        public static final int DRIVE_TRAIN_LEFT_BACK = 6;
+        public static final int DRIVE_TRAIN_RIGHT_FRONT = 4;
+        public static final int DRIVE_TRAIN_RIGHT_BACK = 1;
     }
 
     public static interface DIO {
-        public static final int GRIPPER_LIMIT_SWITCH = 8;
+        public static final int GRIPPER_LIMIT_SWITCH = 6;
     }
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
