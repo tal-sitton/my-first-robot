@@ -17,7 +17,8 @@ import frc.robot.subsystems.Gripper;
  */
 public class RobotMap {
     public static interface PWM {
-        public static final int GRIPPER_MOTOR = 4;
+        public static final int GRIPPER_MOTOR_RIGHT = 5;
+        public static final int GRIPPER_MOTOR_LEFT = 4;
         public static final int DRIVE_TRAIN_LEFT_FRONT = 3;
         public static final int DRIVE_TRAIN_LEFT_BACK = 2;
         public static final int DRIVE_TRAIN_RIGHT_FRONT = 1;

@@ -32,9 +32,10 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
 
-        gripper = new Gripper(new VictorSP(RobotMap.PWM.GRIPPER_MOTOR), new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_SWITCH));
+        gripper = new Gripper(new SpeedControllerGroup(new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_RIGHT), new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_LEFT)), new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_SWITCH));
         driveTrain = new DriveTrain(new SpeedControllerGroup( new VictorSP(RobotMap.PWM.DRIVE_TRAIN_LEFT_FRONT), new VictorSP(RobotMap.PWM.DRIVE_TRAIN_LEFT_BACK)),new SpeedControllerGroup( new VictorSP(RobotMap.PWM.DRIVE_TRAIN_RIGHT_FRONT), new VictorSP(RobotMap.PWM.DRIVE_TRAIN_RIGHT_FRONT)));
         oi = new OI();
+
 
     }
 
