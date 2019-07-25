@@ -24,16 +24,17 @@ public class Robot extends TimedRobot {
             oi;
     public static Gripper gripper;
     public static DriveTrain driveTrain;
-
+    private SpeedController gripperMotorRight;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     @Override
     public void robotInit() {
-
-        gripper = new Gripper(new SpeedControllerGroup(new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_RIGHT), new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_LEFT)), new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_SWITCH));
-        driveTrain = new DriveTrain(new SpeedControllerGroup( new VictorSP(RobotMap.PWM.DRIVE_TRAIN_LEFT_FRONT), new VictorSP(RobotMap.PWM.DRIVE_TRAIN_LEFT_BACK)),new SpeedControllerGroup( new VictorSP(RobotMap.PWM.DRIVE_TRAIN_RIGHT_FRONT), new VictorSP(RobotMap.PWM.DRIVE_TRAIN_RIGHT_FRONT)));
+        gripperMotorRight=new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_RIGHT);
+        gripperMotorRight.setInverted(false);
+        gripper = new Gripper(new SpeedControllerGroup(gripperMotorRight, new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_LEFT)),new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_SWITCH));
+        driveTrain = new DriveTrain(new SpeedControllerGroup(new VictorSP(RobotMap.CAN.DRIVE_TRAIN_LEFT_FRONT), new VictorSP(RobotMap.CAN.DRIVE_TRAIN_LEFT_BACK)), new SpeedControllerGroup(new VictorSP(RobotMap.CAN.DRIVE_TRAIN_RIGHT_FRONT), new VictorSP(RobotMap.CAN.DRIVE_TRAIN_RIGHT_BACK)));
         oi = new OI();
 
 
