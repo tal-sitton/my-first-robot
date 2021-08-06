@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrain;
@@ -20,20 +22,21 @@ import frc.robot.subsystems.Gripper;
  * project.
  */
 public class Robot extends TimedRobot {
-    public static OI /**GEVALD*/
+    public static OI /**GEVALD**/
             oi;
     public static Gripper gripper;
     public static DriveTrain driveTrain;
     private SpeedController gripperMotorRight;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     @Override
     public void robotInit() {
-        gripperMotorRight=new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_RIGHT);
+        gripperMotorRight = new WPI_TalonSRX(RobotMap.PWM.GRIPPER_MOTOR_RIGHT);
         gripperMotorRight.setInverted(false);
-        gripper = new Gripper(new SpeedControllerGroup(gripperMotorRight, new VictorSP(RobotMap.PWM.GRIPPER_MOTOR_LEFT)),new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_SWITCH));
+        gripper = new Gripper(new SpeedControllerGroup(gripperMotorRight, new WPI_VictorSPX(RobotMap.PWM.GRIPPER_MOTOR_LEFT)), new DigitalInput(RobotMap.DIO.GRIPPER_LIMIT_SWITCH));
         driveTrain = new DriveTrain(new SpeedControllerGroup(new VictorSP(RobotMap.CAN.DRIVE_TRAIN_LEFT_FRONT), new VictorSP(RobotMap.CAN.DRIVE_TRAIN_LEFT_BACK)), new SpeedControllerGroup(new VictorSP(RobotMap.CAN.DRIVE_TRAIN_RIGHT_FRONT), new VictorSP(RobotMap.CAN.DRIVE_TRAIN_RIGHT_BACK)));
         oi = new OI();
 
