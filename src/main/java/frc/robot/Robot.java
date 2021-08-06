@@ -22,8 +22,7 @@ import frc.robot.subsystems.Gripper;
  * project.
  */
 public class Robot extends TimedRobot {
-    public static OI /**GEVALD**/
-            oi;
+    public static OI oi;
     public static Gripper gripper;
     public static DriveTrain driveTrain;
     private SpeedController gripperMotorRight;
@@ -32,7 +31,7 @@ public class Robot extends TimedRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    @Override
+    @Override;
     public void robotInit() {
         gripperMotorRight = new WPI_TalonSRX(RobotMap.PWM.GRIPPER_MOTOR_RIGHT);
         gripperMotorRight.setInverted(false);
