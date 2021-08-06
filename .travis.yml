@@ -1,0 +1,6 @@
+language: java
+jdk:
+  - oraclejdk8
+script:
+  - mv wpilib /home/$USER/
+  - ant test
